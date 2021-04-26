@@ -32,8 +32,9 @@ public class Calculator extends Application {
 
     private void createButtons(TilePane buttons, TextField textField) {
 
-        TextButtonsListener textButtonsListener = new TextButtonsListener(textField);
-        EqButtonListener eqButtonListener = new EqButtonListener(textField);
+        NumButtonsListener numButtonsListener = new NumButtonsListener(textField);
+        OpButtonListener opButtonListener = new OpButtonListener(textField);
+        //EqButtonListener eqButtonListener = new EqButtonListener(textField);
         CancButtonListener cancButtonListener = new CancButtonListener(textField);
 
         for (String[] row : CALC) {
@@ -41,12 +42,13 @@ public class Calculator extends Application {
             for (String s : row) {
                 Button b = createButton(s);
 
-                if (b.getText().matches("[0-9]") || b.getText().matches("[+\\-*/.]")) {
-                    b.addEventHandler(ActionEvent.ACTION, textButtonsListener);
+                if (b.getText().matches("[0-9]") || b.getText().matches("\\.")) {
+                    b.addEventHandler(ActionEvent.ACTION, numButtonsListener);
                 }
 
-                else if (b.getText().equals("=")) {
-                    b.addEventHandler(ActionEvent.ACTION, eqButtonListener);
+                else if (b.getText().matches("[+\\-*/=]")) {
+                    b.addEventHandler(ActionEvent.ACTION, opButtonListener);
+
                 }
 
                 else if (b.getText().equals("C")) {

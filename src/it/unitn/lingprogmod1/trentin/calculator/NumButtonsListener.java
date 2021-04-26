@@ -5,7 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class TextButtonsListener implements EventHandler {
+public class NumButtonsListener implements EventHandler {
 
     private TextField textField;
 
@@ -19,7 +19,7 @@ public class TextButtonsListener implements EventHandler {
         textField.setText(text);
     }
 
-    public TextButtonsListener(TextField textField) {
+    public NumButtonsListener(TextField textField) {
         this.textField = textField;
     }
 }
