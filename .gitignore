@@ -32,3 +32,6 @@ nbactions.xml
 .vscode/
 
 target/
+
+out/
+
